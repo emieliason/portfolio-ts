@@ -1,42 +1,41 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.expand:hover {
+  animation-name: expand;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.expand {
+  animation-name: contract;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 
-@keyframes logo-spin {
+@keyframes expand {
   from {
-    transform: rotate(0deg);
+    color: transparent;
+    height: 1rem;
   }
+
   to {
-    transform: rotate(360deg);
+    color: #080d0a;
+    height: 2.5rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes contract {
+  from {
+    color: #080d0a;
+    height: 2.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  to {
+    color: transparent;
+    height: 1rem;
+  }
 }
